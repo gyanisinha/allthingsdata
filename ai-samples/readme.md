@@ -10,12 +10,13 @@
 - Read about [OpenBB](https://openbb.co/): OpenBB is a leading open-source investment research software platform that gives you access to high-quality financial market data and analytical tools.
 - Install [OpenBB SDK](https://my.openbb.co/app/sdk/installation)
 - Setup [OpenAI Python SDK](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quickstart?pivots=programming-language-python&tabs=command-line)
+- Install dependencies
 
 #### Details
 
-Code: [stocks_news_sentiment_analysis.py](https://github.com/gyanisinha/allthingsdata/ai-samples/blob/main/stocks_news_sentiment_analysis.py)
+Code: [stocks_news_sentiment_analysis.py](https://github.com/gyanisinha/allthingsdata/blob/main/ai-samples/stocks_news_sentiment_analysis.py)
 
-Config: [config.json]
+Config: [config.json](https://github.com/gyanisinha/allthingsdata/blob/main/ai-samples/config.json)
 
 #### Output:
 
