@@ -5,6 +5,8 @@
 
 ### Stocks news sentiment analysis (using OpennBB and OpenAI)
 
+This is just to show the _art of possible_ and can be extended for other use cases.
+
 #### Pre-reqs: 
 
 - Read about [OpenBB](https://openbb.co/): OpenBB is a leading open-source investment research software platform that gives you access to high-quality financial market data and analytical tools.
