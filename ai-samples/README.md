@@ -1,6 +1,6 @@
 ## Samples codes for AI use cases
 
----
+
 
 
 ### Stocks news sentiment analysis (using OpennBB and OpenAI)
@@ -22,3 +22,4 @@ Config: [config.json](https://github.com/gyanisinha/allthingsdata/blob/main/ai-s
 
 ![image](https://github.com/gyanisinha/allthingsdata/assets/87772005/e6f51ffb-af5a-46ad-9cc8-e6844fa7b784)
 
+---
