@@ -12,14 +12,17 @@
 - Setup [OpenAI Python SDK](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quickstart?pivots=programming-language-python&tabs=command-line)
 - Install dependencies
 
+> 📍**Note**
+>
+> DISCLAIMER: This is not an investment recommendation and is only meant for research/learning
+
 #### Details
 
-Code: [stocks_news_sentiment_analysis.py](https://github.com/gyanisinha/allthingsdata/blob/main/ai-samples/stocks_news_sentiment_analysis.py)
-
-Config: [config.json](https://github.com/gyanisinha/allthingsdata/blob/main/ai-samples/config.json)
+- Code: [stocks_news_sentiment_analysis.py](https://github.com/gyanisinha/allthingsdata/blob/main/ai-samples/stocks_news_sentiment_analysis.py)
+- Config: [config.json](https://github.com/gyanisinha/allthingsdata/blob/main/ai-samples/config.json)
 
 #### Output:
 
-![image](https://github.com/gyanisinha/allthingsdata/assets/87772005/e6f51ffb-af5a-46ad-9cc8-e6844fa7b784)
+  ![image](https://github.com/gyanisinha/allthingsdata/assets/87772005/e6f51ffb-af5a-46ad-9cc8-e6844fa7b784)
 
 ---
