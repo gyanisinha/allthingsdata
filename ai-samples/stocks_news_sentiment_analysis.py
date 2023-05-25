@@ -40,7 +40,7 @@ def get_sentiment_score(text):
     score = float(response.choices[0].text.strip())
     return score
 
-headlines = get_headlines("DLTR")
+headlines = get_headlines("DLTR") # input ticker
 
 results = pd.DataFrame(columns=['News','Sentiment_Score'])
 
