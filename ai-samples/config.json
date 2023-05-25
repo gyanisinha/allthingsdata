@@ -1,0 +1,6 @@
+{
+    "CHATGPT_MODEL":"<enter-model-name>",
+    "COMPLETIONS_MODEL":"<enter-model-name>",
+    "OPENAI_API_BASE":"https://<enter-azure-resource-name>.openai.azure.com",
+    "OPENAI_API_VERSION":"<enter-version-number YYYY-MM-DD>"
+}
