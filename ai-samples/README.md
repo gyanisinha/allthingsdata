@@ -19,7 +19,7 @@
 #### Details
 
 - Code: [stocks_news_sentiment_analysis.py](https://github.com/gyanisinha/allthingsdata/blob/main/ai-samples/stocks_news_sentiment_analysis.py)
-- Config: [config.json](https://github.com/gyanisinha/allthingsdata/blob/main/ai-samples/config.json)
+- Config: [config.json](https://github.com/gyanisinha/allthingsdata/blob/main/ai-samples/config.json) - using text-davinci-003 model for Completions
 
 #### Output:
 
