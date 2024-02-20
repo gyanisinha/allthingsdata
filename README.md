@@ -4,3 +4,7 @@ all things data, ai and beyond! This repo is for my learning (and collabs are we
 
 ## AI Samples
 [ai-samples](https://github.com/gyanisinha/allthingsdata/tree/main/ai-samples)
+
+## Fabric Samples
+[fabric-samples](https://github.com/gyanisinha/allthingsdata/tree/main/fabric-samples)
+
