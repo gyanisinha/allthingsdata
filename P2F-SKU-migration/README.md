@@ -14,7 +14,7 @@ Before we dive into the script, ensure that you have the following pre-requisite
 
 ## Powershell Script
 
-[PowerBI_Discovery_P_SKU.ps1](P2F-SKU-migration/discovery/PowerBI_Discovery_P_SKU.ps1)
+[PowerBI_Discovery_P_SKU.ps1](P2F-SKU-migration/discovery)
 
 ## Considerations
 
