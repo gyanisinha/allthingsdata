@@ -1,8 +1,8 @@
-# Power BI P SKU Estate - Automated Discovery
+[PowerBI-Discovery-Report.csv](https://github.com/gyanisinha/allthingsdata/files/15319812/PowerBI-Discovery-Report.csv)# Power BI P SKU Estate - Automated Discovery
 
 ## Introduction
 
-The seamless migration from *Power BI P SKU* to *Fabric F SKU* requires meticulous planning and comprehensive discovery. This post will introduce a PowerShell script that automates the discovery of the current Power BI P SKU estate, providing valuable insights for the migration process.
+The seamless migration from **Power BI P SKU** to **Fabric F SKU** requires meticulous planning and comprehensive discovery. This post will introduce a PowerShell script that automates the discovery of the current Power BI P SKU estate, providing valuable insights for the migration process.
 
 ## Pre-requisites
 
@@ -20,10 +20,36 @@ Before we dive into the script, ensure that you have the following pre-requisite
 
 The script begins by connecting to the Power BI service using admin credentials. It then defines the output CSV file path and creates an output object to store the workspace details.
 
-The script retrieves all workspaces and for each workspace, it fetches details such as dashboards, reports, dataflows, datasets, and owners, etc. It also makes a REST API call to verify Fabric items for each workspace.
+The script retrieves all workspaces and for each workspace, it fetches details such as dashboards, reports, dataflows, datasets, and owners, etc. It also makes a REST API call to verify Fabric items for each workspace. The details are as follows:
+- WorkspaceId,
+- WorkspaceName,
+- Type,
+- State,
+- IsReadOnly,
+- IsOrphaned,
+- IsOnDedicatedCapacity,
+- CapacityId,
+- Owners,
+- DashboardsCount,
+- ReportsCount,
+- DatasetsCount,
+- DataflowsCount,
+- FabricItemsCount
 
 Finally, the script exports the workspace details to a CSV file. This automated process significantly reduces the time and effort required for manual discovery, providing a comprehensive overview of the current Power BI P SKU estate.
+![image](https://github.com/gyanisinha/allthingsdata/assets/87772005/5d77cba1-0451-43dc-8cc1-a1b5cb4d054d)
+
+## Sample Discovery Report
+
+[PowerBI-Discovery-Report.csv](https://github.com/gyanisinha/allthingsdata/files/15319815/PowerBI-Discovery-Report.csv)
+
+
 
 ## Conclusion
 
 Performing a comprehensive discovery of the current Power BI P SKU estate is a crucial step in planning for the migration to Fabric F SKU. This PowerShell script provides an automated solution for this task, offering valuable insights that can guide the migration process. By leveraging this script, organizations can ensure a smooth and efficient transition, ultimately enhancing their data management and visualization capabilities.
+
+
+## Disclaimer
+
+**Sample Code Disclaimer**: This Sample Code is provided for the purpose of illustration only and is not intended to be used in a production environment. THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
