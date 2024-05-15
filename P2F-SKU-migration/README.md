@@ -1,4 +1,4 @@
-[PowerBI-Discovery-Report.csv](https://github.com/gyanisinha/allthingsdata/files/15319812/PowerBI-Discovery-Report.csv)# Power BI P SKU Estate - Automated Discovery
+# Power BI P SKU Estate - Automated Discovery
 
 ## Introduction
 
@@ -42,8 +42,6 @@ Finally, the script exports the workspace details to a CSV file. This automated 
 ## Sample Discovery Report
 
 [PowerBI-Discovery-Report.csv](https://github.com/gyanisinha/allthingsdata/files/15319815/PowerBI-Discovery-Report.csv)
-
-
 
 ## Conclusion
 
