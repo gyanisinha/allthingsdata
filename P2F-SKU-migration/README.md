@@ -2,7 +2,9 @@
 
 ## Introduction
 
-The seamless migration from **Power BI P SKU** to **Fabric F SKU** requires meticulous planning and comprehensive discovery. This post will introduce a PowerShell script that automates the discovery of the current Power BI P SKU estate, providing valuable insights for the migration process.
+If you’re in the process of migrating your Power BI P SKU to Fabric SKU, or even just thinking about it, you know how crucial it is to have a detailed understanding of your current environment. 
+
+The seamless migration from **Power BI P SKU** to **Fabric F SKU** requires meticulous planning and comprehensive discovery. This post will introduce a PowerShell script that automates the discovery of the current Power BI P SKU estate, providing valuable insights for the migration process. This script aims to automate the discovery of your Power BI SKU estate and could be a great starting point for your discovery and assessment journey. You can, of course, tweak it to gather even more insights based on your specific needs!
 
 ## Pre-requisites
 
