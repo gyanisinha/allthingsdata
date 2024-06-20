@@ -1,6 +1,6 @@
 # Using Azure OpenAI for contextual understanding and abstrative summarization to generate Word-Cloud from unstructured data 
 
-Word clouds, those whimsical visual summaries of textual content, have graced countless presentations, blog posts, and reports. Yet beneath their playful visuals lies a formidable challenge: how to distill meaning from the jungle of unstructured text feedback. Here’s why it’s no walk in the park:
+Just a fun try! **Word clouds**, those whimsical visual summaries of textual content, have graced countless presentations, blog posts, and reports. Yet beneath their playful visuals lies a formidable challenge: how to distill meaning from the jungle of unstructured text feedback. Here’s why it’s no walk in the park:
 
 - Take for an example a sample customer feedback on ergonomic chairs and desks from Contoso Pvt. Ltd.:
     - Q: what did you like about our products, what did you dislike about our products, how do you unwind and relax:
@@ -24,5 +24,7 @@ Enter GenAI Summarization: Azure OpenAI’s powerful LLMs, revolutionize text su
 - Multilingual Magic: LLMs break language barriers, as they can support multiple languages (and are rapidly evolving). Suddenly, global insights are at our fingertips.
 
 So next time you gaze at a word cloud, remember the hidden complexities and use right tools to distill wisdom from the textual chaos!
+
+Code: [generate_wordcloud_from_unstructured_data_using_azure_openai.ipynb](https://github.com/gyanisinha/allthingsdata/blob/e417984da352be8d7869d816bb1037caba55fba7/GenAI-samples/wordcloud-openai/generate_wordcloud_from_unstructured_data_using_azure_openai.ipynb)
 
 Happy Learning!
