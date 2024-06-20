@@ -1,0 +1,7 @@
+"Customer ID","Liked","Disliked","Unwind and Relax"
+1,"The comfortable design supports my back and posture.","The armrests are a bit too low for my liking.","I enjoy listening to music while taking short walks."
+2,"The adjustable height feature is great for different tasks.","The assembly instructions were unclear.","I like reading a book in my favorite armchair."
+3,"The lumbar support is excellent.","The chair wheels sometimes get stuck on the carpet.","I practice meditation to unwind."
+4,"The desk surface is spacious and sturdy.","The chair fabric tends to get warm after prolonged use.","I watch my favorite TV shows to relax."
+5,"The minimalist design fits well in my home office.","The desk drawer is a bit stiff.","I take breaks to stretch and do yoga."
+
