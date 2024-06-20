@@ -1,4 +1,6 @@
 # Using Azure OpenAI for contextual understanding and abstractive summarization to generate Word-Cloud from unstructured data 
+![likes](https://github.com/gyanisinha/allthingsdata/assets/87772005/8c90ffdd-6e51-45e9-aba9-cae33fad6d2a)
+
 
 Just a fun try! **Word clouds**, those whimsical visual summaries of textual content, have graced countless presentations, blog posts, and reports. Yet beneath their playful visuals lies a formidable challenge: how to distill meaning from the jungle of unstructured text feedback. Here’s why it’s no walk in the park:
 
