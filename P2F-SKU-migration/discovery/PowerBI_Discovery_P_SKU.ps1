@@ -51,9 +51,6 @@ foreach ($workspace in $workspaces){
             }
         }
 
-        # find large dataset
-        $largest_dataset = $datasets | Sort-Object -Property SizeInBytes -Descending | Select-Object -First 1
-
         # Get the owners of the workspace
         $owners = $workspace.Users | Where-Object { $_.AccessRight -eq 'Admin' } | ForEach-Object { $_.UserPrincipalName }
 
@@ -97,8 +94,6 @@ foreach ($workspace in $workspaces){
             DashboardsCount = $dasboards.Count
             ReportsCount = $reports.Count
             DatasetsCount = $datasets.Count
-            LargestDatasetName = $largest_dataset.DatasetName
-            LargestDatasetSizeInBytes = $largest_dataset.SizeInBytes
             LargeModelCount = $large_model_count
             DataflowsCount = $dataflows.Count
             FabricItemsCount = $fabricItemsCount
