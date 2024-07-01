@@ -62,7 +62,6 @@ foreach ($workspace in $workspaces){
 
         try {
             $endpoint = "https://api.fabric.microsoft.com/v1/admin/items?workspaceId=$($workspace.ID)"
-            $metric_endpoint = "https://api.powerbi.com/v1.0/myorg/admin/capacities/$capacityId/metrics"
             $headers = @{"Authorization" = "$token"}
             $response = Invoke-RestMethod -Uri $endpoint -Headers $headers -Method Get
             # Write-Host "Response: $response"
