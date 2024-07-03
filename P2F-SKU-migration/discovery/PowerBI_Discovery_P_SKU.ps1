@@ -11,6 +11,7 @@ $workspaceDetails = New-Object System.Collections.Generic.List[object]
 # Get all active premium workspaces list
 try {
     # $workspaces = Get-PowerBIWorkspace -All
+    # $workspaces = Get-PowerBIWorkspace -Scope Organization -All -Filter "capacityId eq toupper('a00000-0000-0000-0000-xxxxxxxxxx')"
     $workspaces = Get-PowerBIWorkspace -Scope Organization -All -Filter "isOnDedicatedCapacity eq true and tolower(state) eq 'active'"
     Write-Host "Workspaces count: $($workspaces.count)"
 } catch {
