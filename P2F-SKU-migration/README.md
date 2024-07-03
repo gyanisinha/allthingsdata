@@ -12,7 +12,7 @@ Before we dive into the script, ensure that you have the following pre-requisite
 
 1. PowerShell 5.1 or higher
 2. MicrosoftPowerBIMgmt module installed. If not, you can install it using the command `Install-Module -Name MicrosoftPowerBIMgmt`
-3. Admin credentials for Power BI service
+3. Admin / Service Principal credentials for Power BI service with appropriate permissions at workspace level.
 
 ## Powershell Script
 
