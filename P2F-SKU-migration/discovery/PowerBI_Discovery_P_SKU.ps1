@@ -5,13 +5,13 @@
 Connect-PowerBIServiceAccount
 
 # Define the output CSV file path and output object
-$csvFilePath = ".\PowerBI-Discovery-Report.csv"
+$csvFilePath = ".\PowerBI-Discovery-Report-Active.csv"
 $workspaceDetails = New-Object System.Collections.Generic.List[object]
 
-# Get all workspaces list
+# Get all active premium workspaces list
 try {
-    # $workspaces = Get-PowerBIWorkspace -Scope Organization -Include All
-    $workspaces = Get-PowerBIWorkspace -All
+    # $workspaces = Get-PowerBIWorkspace -All
+    $workspaces = Get-PowerBIWorkspace -Scope Organization -All -Filter "isOnDedicatedCapacity eq true and tolower(state) eq 'active'"
 } catch {
     Write-Host "Error getting workspaces: $_"
     return
@@ -31,7 +31,7 @@ try {
 foreach ($workspace in $workspaces){
     try {
         
-        #Get dashboard, reports, dataflows and datasets for the current workspace
+        # Get dashboard, reports, dataflows and datasets for the current workspace
         $dasboards = Get-PowerBIDashboard -WorkspaceId $workspace.ID
         $reports = Get-PowerBIReport -WorkspaceId $workspace.ID
         $datasets = Get-PowerBIDataset -WorkspaceId $workspace.ID
