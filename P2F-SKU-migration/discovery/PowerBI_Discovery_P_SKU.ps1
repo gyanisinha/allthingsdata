@@ -12,6 +12,7 @@ $workspaceDetails = New-Object System.Collections.Generic.List[object]
 try {
     # $workspaces = Get-PowerBIWorkspace -All
     $workspaces = Get-PowerBIWorkspace -Scope Organization -All -Filter "isOnDedicatedCapacity eq true and tolower(state) eq 'active'"
+    Write-Host "Workspaces count: $($workspaces.count)"
 } catch {
     Write-Host "Error getting workspaces: $_"
     return
@@ -30,7 +31,7 @@ try {
 # get workspace details
 foreach ($workspace in $workspaces){
     try {
-        
+        Write-Host "Fetching details for workspace $($workspace.ID) $($workspace.Name)"
         # Get dashboard, reports, dataflows and datasets for the current workspace
         $dasboards = Get-PowerBIDashboard -WorkspaceId $workspace.ID
         $reports = Get-PowerBIReport -WorkspaceId $workspace.ID
