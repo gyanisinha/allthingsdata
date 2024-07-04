@@ -5,8 +5,8 @@
 Connect-PowerBIServiceAccount
 
 # Define the input workspace list, output CSV file path and output object - to run in tranches
-$wsFilePath = "C:\temp\XXXXWorkspacesT1.csv"
-$csvFilePath = "C:\temp\PowerBI-Discovery-Report-Active-XXXX-T1.csv"
+$wsFilePath = ".\XXXXWorkspacesT1.csv"
+$csvFilePath = ".\PowerBI-Discovery-Report-Active-XXXX-T1.csv"
 $workspaceDetails = New-Object System.Collections.Generic.List[object]
 
 # Read workspaces list to run in tranches
@@ -69,9 +69,7 @@ foreach ($workspace in $workspaces){
 
         # Fabric items rest API call
         $fabricItemsCount = 0
-        $powerBIItemsCount = 0
-        # $otherItemsCount = 0
-        
+
         # List of Fabric items - check and update from: https://learn.microsoft.com/en-us/rest/api/fabric/admin/items/list-items?tabs=HTTP#itemtype
         $fabricItemsTypes = @('Lakehouse', 'Warehouse', 'KQLDatabase', 'Notebook', 'DataPipeline', 'Eventstream','KQLQueryset', 'KQLDataConnection', 'MLExperiment', 'MLModel', 'MirroredWarehouse', 'SQLEndpoint', 'SparkJobDefinition')
 
@@ -84,7 +82,7 @@ foreach ($workspace in $workspaces){
             foreach ($item in $response){
                 foreach ($entity in $item.itemEntities){
                     $itemType = $entity.type
-                    Write-Host "Item $itemType"
+                    # Write-Host "Item $itemType"
                     if ($fabricItemsTypes -contains $itemType){
                         $fabricItemsCount++
                     }
