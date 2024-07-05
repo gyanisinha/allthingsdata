@@ -2,13 +2,8 @@
 # Install-Module -Name MicrosoftPowerBIMgmt
 
 # Connect to Power BI service using admin credentials or Service Principal (use KeyVault in Prod): example https://github.com/SQLSwimmer/powerbi-admin-scripts/blob/main/GetGatewayDatasources.ps1
-Connect-PowerBIServiceAccount
-# $TenantId = ''
-# $AppId = ''
-# $SecretValue = ''
-# $password = ConvertTo-SecureString $SecretValue -AsPlainText -Force
-# $Cred = New-Object System.Management.Automation.PSCredential ($AppId, $password)
 # Connect-PowerBIServiceAccount -Tenant $TenantId -ServicePrincipal -Credential $Cred
+Connect-PowerBIServiceAccount
 
 # Define the input workspace list, output CSV file path and output object - to run in tranches
 $csvFilePath = "C:\temp\PowerBI-Discovery-Report-Active-XXXX-Output.csv"
