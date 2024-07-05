@@ -11,7 +11,7 @@ Connect-PowerBIServiceAccount
 # Connect-PowerBIServiceAccount -Tenant $TenantId -ServicePrincipal -Credential $Cred
 
 # Define the input workspace list, output CSV file path and output object - to run in tranches
-$csvFilePath = "C:\temp\PowerBI-Discovery-Report-Active-HCL-SharedCap.csv"
+$csvFilePath = "C:\temp\PowerBI-Discovery-Report-Active-XXXX-Output.csv"
 $workspaceDetails = New-Object System.Collections.Generic.List[object]
 
 # Get all active premium workspaces list
@@ -24,7 +24,7 @@ try {
 }
 
 try {
-        $filterCond = "capacityId eq toupper('e0c4f003-9518-4ff4-b25d-6102cdd90dbd')"
+        $filterCond = "capacityId eq toupper('xxxxc637-0b33-4d8e-8425-826b1d882ab7')"
         $topCond = 1000
         $endpoint = "https://api.powerbi.com/v1.0/myorg/admin/groups?%24filter=$($filterCond)&%24top=$($topCond)" -f $filterCond, $topCond
         $headers = @{"Authorization" = "$token"}
