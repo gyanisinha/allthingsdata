@@ -22,6 +22,21 @@ If there are large number of workspaces, and you would prefer to run in tranches
 
 - [DiscoveryScriptWSTranches.ps1](https://github.com/gyanisinha/allthingsdata/blob/e515d1f3b7e7d166ba4aefbe0a1ef886a92a969b/P2F-SKU-migration/discovery/DiscoveryScriptWSTranches.ps1)
 
+If there are large number of worspaces, alternatively you may use Groups API:
+- [DiscoveryScriptUsingGroupsAPI](https://github.com/gyanisinha/allthingsdata/blob/dd83877378830c571b154c5aa9248cad57cfc3a8/P2F-SKU-migration/discovery/DiscoveryScriptusingGroupsAPI.ps1)
+
+For detailed metadata scan, which could be useful for validaitons and troubleshooting post migration, you may use below script:
+
+- [DetailedMetadataScan.ps1](https://github.com/gyanisinha/allthingsdata/blob/dd83877378830c571b154c5aa9248cad57cfc3a8/P2F-SKU-migration/discovery/DetailedMetadataScan.ps1)
+
+```
+  Response: @{id=4e5ec426-73c4-424f-ba23-5f4589a6e5eb; createdDateTime=2024-07-08T08:27:17.9711516Z; status=NotStarted}
+  
+  Response: @{id=4e5ec426-73c4-424f-ba23-5f4589a6e5eb; createdDateTime=2024-07-08T08:27:17.97; status=Succeeded}
+
+  Metadata scan completed and result saved.
+```
+
 ## Considerations
 
 The script begins by connecting to the Power BI service using admin credentials. It then defines the output CSV file path and creates an output object to store the workspace details.
