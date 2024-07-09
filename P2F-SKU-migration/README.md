@@ -16,32 +16,33 @@ Before we dive into the script, ensure that you have the following pre-requisite
 
 ## Powershell Script
 
-- [PowerBI_Discovery_P_SKU.ps1](https://github.com/gyanisinha/allthingsdata/blob/68d594f6edd8f3aef99e555c97b8785f9bbd4fba/P2F-SKU-migration/discovery/PowerBI_Discovery_P_SKU.ps1)
+Below are few options for automated discovery. It is recommended to test the scripts in lower environment before using in Prod, for expected results.
 
-If there are large number of workspaces, and you would prefer to run in tranches, you may use below script:
+- Install required modules if not already installed and verify permissions
 
-- [DiscoveryScriptWSTranches.ps1](https://github.com/gyanisinha/allthingsdata/blob/e515d1f3b7e7d166ba4aefbe0a1ef886a92a969b/P2F-SKU-migration/discovery/DiscoveryScriptWSTranches.ps1)
+- Review API permissions from product documentation
 
-If there are large number of worspaces, alternatively you may use Groups API:
-- [DiscoveryScriptUsingGroupsAPI](https://github.com/gyanisinha/allthingsdata/blob/dd83877378830c571b154c5aa9248cad57cfc3a8/P2F-SKU-migration/discovery/DiscoveryScriptusingGroupsAPI.ps1)
+- Verify scope, for example:
+  - Service Principal: Tenant.ReadWrite.All, Capacity.Read.All, Workspace.Read.All, Items.Read.All
+  - Admin user: Fabric Admin, Capacity Admin, Workspace Admin
 
-For detailed metadata scan, which could be useful for validaitons and troubleshooting post migration, you may use below script:
 
-- [DetailedMetadataScan.ps1](https://github.com/gyanisinha/allthingsdata/blob/dd83877378830c571b154c5aa9248cad57cfc3a8/P2F-SKU-migration/discovery/DetailedMetadataScan.ps1)
 
-```
-  Response: @{id=4e5ec426-73c4-424f-ba23-5f4589a6e5eb; createdDateTime=2024-07-08T08:27:17.9711516Z; status=NotStarted}
-  
-  Response: @{id=4e5ec426-73c4-424f-ba23-5f4589a6e5eb; createdDateTime=2024-07-08T08:27:17.97; status=Succeeded}
+| Usage | Script | Input | Output | Pre-requisites &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        |
+|-------|----------|-----------|------------------|--------------------------------------|
+| **Detailed Metadata Scan** <br><br> This is useful to capture detailed metadata with lineage, datasets, and other details for assessment as well as troubleshooting if need be (post migration) | [DetailedMetadataScan.ps1](https://github.com/gyanisinha/allthingsdata/blob/dd83877378830c571b154c5aa9248cad57cfc3a8/P2F-SKU-migration/discovery/DetailedMetadataScan.ps1) | Workspaces list in a csv file - batches of 100 <br> Example: [WorkspacesT1.csv](https://github.com/user-attachments/files/16145860/WorkspacesT1.csv) | Json file | [Set up metadata scanning in an organization](https://learn.microsoft.com/en-us/fabric/admin/metadata-scanning-setup)  <br><br> **Permissions**: The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal. When running under service principal authentication, an app must not have any admin-consent required permissions for Power BI set on it in the Azure portal.|
+|**Discovery using Groups REST API** <br><br> If there are large number of worspaces, this can run in batches of 1000 workspaces | [DiscoveryScriptusingGroupsAPI.ps1](https://github.com/gyanisinha/allthingsdata/blob/a3c7244fd64e8e89d76955c76e37e3ebe8b37bb8/P2F-SKU-migration/discovery/DiscoveryScriptusingGroupsAPI.ps1) |`$filterCond = "capacityId eq toupper('xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx')"` <br> `$topCond = 1000` <br> `$endpoint = "https://api.powerbi.com/v1.0/myorg/admin/groups?%24filter=$($filterCond)&%24top=$($topCond)" -f $filterCond, $topCond `| CSV file with below details: <br> WorkspaceId, WorkspaceName,	Type,	State,	IsReadOnly,	IsOnDedicatedCapacity,	CapacityId,	DefaultDatasetStorageFormat,	HasWorkspaceLevelSettings,	DashboardsCount,	ReportsCount,	DatasetsCount,	LargeModelCount,	DataflowsCount,	FabricItemsCount | [Admin - Groups GetGroupsAsAdmin REST API](https://learn.microsoft.com/en-us/rest/api/power-bi/admin/groups-get-groups-as-admin) <br> Permissions: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal. Delegated permissions are supported. When running under service principal authentication, an app must not have any admin-consent required permissions for Power BI set on it in the Azure portal.|
+|**Discovery using Get-PowerBIWorkspace Powershell cmdlet in batches** <br><br> This could be used for small scale use cases, has the ability to run in batches of 50 worksapces |[DiscoveryScriptWSTranches.ps1](https://github.com/gyanisinha/allthingsdata/blob/e515d1f3b7e7d166ba4aefbe0a1ef886a92a969b/P2F-SKU-migration/discovery/DiscoveryScriptWSTranches.ps1)| Workspaces list in a csv file - batches of 50 |CSV file with below details: <br> WorkspaceId, WorkspaceName,	Type,	State,	IsReadOnly,	IsOnDedicatedCapacity,	CapacityId,	DefaultDatasetStorageFormat,	HasWorkspaceLevelSettings,	DashboardsCount,	ReportsCount,	DatasetsCount,	LargeModelCount,	DataflowsCount,	FabricItemsCount | Install required modules if not already installed and verify permissions |
 
-  Metadata scan completed and result saved.
-```
+
 
 ## Considerations
 
-The script begins by connecting to the Power BI service using admin credentials. It then defines the output CSV file path and creates an output object to store the workspace details.
+Install required modules if not already installed and verify permissions 
 
-The script retrieves all workspaces and for each workspace, it fetches details such as dashboards, reports, dataflows, datasets, and owners, etc. It also makes a REST API call to verify Fabric items for each workspace. The details are as follows:
+These script begins by connecting to the Power BI service using admin credentials or service principal. Refer to above table and scripts for details.
+
+The scripts retrieve below details for the workspaces:
 - WorkspaceId,
 - WorkspaceName,
 - Type,
@@ -55,9 +56,10 @@ The script retrieves all workspaces and for each workspace, it fetches details s
 - ReportsCount,
 - DatasetsCount,
 - DataflowsCount,
-- FabricItemsCount
+- FabricItemsCount,
+- Additional metadata in case of Detailed Metadata Scan
 
-Finally, the script exports the workspace details to a CSV file. This automated process significantly reduces the time and effort required for manual discovery, providing a comprehensive overview of the current Power BI P SKU estate.
+For example: The script exports the workspace details to a CSV file. This automated process significantly reduces the time and effort required for manual discovery, providing a comprehensive overview of the current Power BI P SKU estate.
 ![image](https://github.com/gyanisinha/allthingsdata/assets/87772005/5d77cba1-0451-43dc-8cc1-a1b5cb4d054d)
 
 ## Sample Discovery Report
