@@ -93,6 +93,7 @@ foreach ($workspace in $workspaces){
                     # Write-Host "Item $itemType"
                     if ($fabricItemsTypes -contains $itemType){
                         $fabricItemsCount++
+                        Start-Sleep -Seconds 2
                     }
                 }
             }
@@ -113,11 +114,11 @@ foreach ($workspace in $workspaces){
             CapacityId = $workspace.capacityId
             DefaultDatasetStorageFormat= $workspace.defaultDatasetStorageFormat
             HasWorkspaceLevelSettings = $workspace.hasWorkspaceLevelSettings
-            Owners = $owners -join ","
+            # Owners = $owners -join ","
             DashboardsCount = $dasboards.Count
             ReportsCount = $reports.Count
             DatasetsCount = $datasets.Count
-            DatasetsDetails = $datasetsJson
+            # DatasetsDetails = $datasetsJson
             LargeModelCount = $large_model_count
             DataflowsCount = $dataflows.Count
             FabricItemsCount = $fabricItemsCount
