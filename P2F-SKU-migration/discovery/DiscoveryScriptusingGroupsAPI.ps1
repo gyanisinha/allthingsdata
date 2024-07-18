@@ -2,7 +2,10 @@
 # Install-Module -Name MicrosoftPowerBIMgmt
 
 # Connect to Power BI service using admin credentials or Service Principal (use KeyVault in Prod): example https://github.com/SQLSwimmer/powerbi-admin-scripts/blob/main/GetGatewayDatasources.ps1
+# $password = ConvertTo-SecureString $SecretValue -AsPlainText -Force
+# $Cred = New-Object System.Management.Automation.PSCredential ($AppId, $password)
 # Connect-PowerBIServiceAccount -Tenant $TenantId -ServicePrincipal -Credential $Cred
+
 Connect-PowerBIServiceAccount
 
 # Define the input workspace list, output CSV file path and output object - to run in tranches
@@ -41,13 +44,13 @@ foreach ($workspace in $workspaces){
         # Get details of the current workspace
         $datasets = Get-PowerBIDataset -WorkspaceId $workspace.ID
         $datasetsJson = $datasets | ConvertTo-Json
-        Start-Sleep -Seconds 5
+        Start-Sleep -Seconds 3
         $dataflows = Get-PowerBIDataflow -WorkspaceId $workspace.ID
-        Start-Sleep -Seconds 5
+        Start-Sleep -Seconds 3
         $dasboards = Get-PowerBIDashboard -WorkspaceId $workspace.ID
-        Start-Sleep -Seconds 5
+        Start-Sleep -Seconds 3
         $reports = Get-PowerBIReport -WorkspaceId $workspace.ID
-        Start-Sleep -Seconds 5
+        Start-Sleep -Seconds 3
 
 
         # Define a threshold for large semantic models (e.g., 1 GB)
@@ -93,7 +96,7 @@ foreach ($workspace in $workspaces){
                     # Write-Host "Item $itemType"
                     if ($fabricItemsTypes -contains $itemType){
                         $fabricItemsCount++
-                        Start-Sleep -Seconds 2
+                        Start-Sleep -Seconds 3
                     }
                 }
             }
@@ -126,7 +129,7 @@ foreach ($workspace in $workspaces){
           
 
          $workspaceDetails.Add($item)
-         Start-Sleep -Seconds 2
+         Start-Sleep -Seconds 1
         } catch {
             Write-Host "Error processing workspace $($workspace.ID): $_"
         }
