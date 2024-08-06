@@ -47,7 +47,7 @@ $endpoint = "https://api.powerbi.com/v1.0/myorg/groups/$($workspace.Id)/AssignTo
 foreach ($workspace in $workspaces)
     {
         
-        ">> Moving Workspace: $($workspace.name) - $($workspace.Id)"
+        ">> Moving Workspace: $($workspace.Id)"
         try {
             $result = Invoke-PowerBIRestMethod -Method Post -Url $endpoint -Body "{`"capacityId`": `"$targetCapacityId`"}" -ErrorAction stop
         }
