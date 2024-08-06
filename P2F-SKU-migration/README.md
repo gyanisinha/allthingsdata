@@ -66,9 +66,15 @@ For example: The script exports the workspace details to a CSV file. This automa
 
 [PowerBI-Discovery-Report.csv](https://github.com/gyanisinha/allthingsdata/files/15319815/PowerBI-Discovery-Report.csv)
 
-## Conclusion
+## Summary
 
 Performing a comprehensive discovery of the current Power BI P SKU estate is a crucial step in planning for the migration to Fabric F SKU. This PowerShell script provides an automated solution for this task, offering valuable insights that can guide the migration process. By leveraging this script, organizations can ensure a smooth and efficient transition, ultimately enhancing their data management and visualization capabilities.
+
+## Migration
+
+For migration there are few options:
+1. [Recommended] Bulk migration from Admin Portal (Worspaces>Reassign): https://learn.microsoft.com/en-us/fabric/admin/portal-workspaces#moving-data-around 
+2. Bulk migration using PowerShell script for a given list of workspaces: [Migration Script](https://github.com/gyanisinha/allthingsdata/blob/68a46fa40cab168180b1703ce1f211e35f3913b8/P2F-SKU-migration/migration/MigrationWorkspacesTranches.ps1)
 
 
 ## Disclaimer
