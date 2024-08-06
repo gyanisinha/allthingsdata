@@ -41,7 +41,7 @@ try {
 
 
 # Migration - provide target capacity ID (should be in same region and same tenant)
-$targetCapacityId = ''
+$targetCapacityId = toupper('')
 
 foreach ($workspaceId in $workspaces)
     {
