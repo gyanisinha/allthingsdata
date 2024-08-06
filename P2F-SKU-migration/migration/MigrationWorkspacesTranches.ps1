@@ -43,8 +43,7 @@ try {
 # Migration - provide target capacity ID (should be in same region and same tenant)
 $targetCapacityId = toupper('')
 
-foreach ($workspaceId in $workspaces)
-    {
+foreach ($workspaceId in $workspaces){
         
         ">> Moving Workspace: $($workspaceId)"
         try {
@@ -56,8 +55,7 @@ foreach ($workspaceId in $workspaces)
                 $errorCnt = $errorCnt + 1
                 throw $_.Exception.InnerException
         }
-
-    }
+}
 
 # Error check
 if ($errorCnt -eq 0) {
