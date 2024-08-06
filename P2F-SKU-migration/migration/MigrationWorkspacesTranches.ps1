@@ -16,7 +16,7 @@ try {
         get-powerbiaccesstoken | Out-Null
     }
 catch {
-        Connect-PowerBIServiceAccount | out-null
+        Connect-PowerBIServiceAccount | Out-null
     }
 
 
