@@ -42,19 +42,19 @@ try {
 
 # Migration - provide target capacity ID (should be in same region and same tenant)
 $targetCapacityId = ''
-$endpoint = "https://api.powerbi.com/v1.0/myorg/groups/$($workspace.Id)/AssignToCapacity"
 
-foreach ($workspace in $workspaces)
+foreach ($workspaceId in $workspaces)
     {
         
-        ">> Moving Workspace: $($workspace.Id)"
+        ">> Moving Workspace: $($workspaceId)"
         try {
-            $result = Invoke-PowerBIRestMethod -Method Post -Url $endpoint -Body "{`"capacityId`": `"$targetCapacityId`"}" -ErrorAction stop
+                $endpoint = "https://api.powerbi.com/v1.0/myorg/groups/$($workspaceId)/AssignToCapacity"
+                $result = Invoke-PowerBIRestMethod -Method Post -Url $endpoint -Body "{`"capacityId`": `"$targetCapacityId`"}" -ErrorAction stop
         }
         catch
         {
-            $errorCnt = $errorCnt + 1
-            throw $_.Exception.InnerException
+                $errorCnt = $errorCnt + 1
+                throw $_.Exception.InnerException
         }
 
     }
