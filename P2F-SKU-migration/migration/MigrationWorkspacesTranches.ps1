@@ -21,7 +21,7 @@ catch {
 
 
 # Define the input workspace list to run in batches of 100
-$wsFilePath = "C:\Users\gyanisinha\OneDrive - Microsoft\Documents\1.MyWork\CMF\Trinity\P2F\WorkspacesT1.csv"
+$wsFilePath = ".\P2F\WorkspacesT1.csv"
 
 # Read workspaces list to run in tranches
 $workspaceIds = Import-Csv -Path $wsFilePath
@@ -44,7 +44,6 @@ try {
 $targetCapacityId = ''
 $endpoint = "https://api.powerbi.com/v1.0/myorg/groups/$($workspace.Id)/AssignToCapacity"
 
-
 foreach ($workspace in $workspaces)
     {
         
@@ -61,7 +60,7 @@ foreach ($workspace in $workspaces)
     }
 
 # Error check
- if ($errorCnt -eq 0) {
+if ($errorCnt -eq 0) {
         Write-Host -ForegroundColor Green "Capacity Assignment Complete"
     } else
     {
