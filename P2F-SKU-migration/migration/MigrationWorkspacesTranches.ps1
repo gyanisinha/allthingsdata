@@ -41,7 +41,7 @@ try {
 
 
 # Migration - provide target capacity ID (should be in same region and same tenant)
-$targetCapacityId = 'E285C877-FBB9-4792-BBFF-632749E4697E'.ToUpper()
+$targetCapacityId = "AAAAAAA-FBB9-4792-BBFF-6000000000E" # example
 $errorCnt = 0
 
 foreach ($workspaceId in $workspaces){
