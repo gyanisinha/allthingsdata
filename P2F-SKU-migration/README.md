@@ -78,7 +78,9 @@ For migration there are few options:
     - [Migration Script - for specific list of workspaces](https://github.com/gyanisinha/allthingsdata/blob/7e73ad40d47de4692e1e7bdce2d6b8894ffbb12e/P2F-SKU-migration/migration/MigrationWorkspacesTranches.ps1)
     - Input: Workspaces Id list in a CSV file and targetCapacity ID
 
-
+3. Sometimes, you may need to bulk assign admin to the worksapces to be migrated. You may use below script:
+   - [BulkAssignAdmin](https://github.com/gyanisinha/allthingsdata/blob/f525a3ad8176772cd9b6f720e09c763c4c3e69de/P2F-SKU-migration/migration/BulkAssignAdmin.ps1)
+   - Input: Workspaces Id list in a CSV file and admin emailAddress = "powerbiadmin@test.com"
 ## Disclaimer
 
 **Sample Code Disclaimer**: This Sample Code is provided for the purpose of illustration only and is not intended to be used in a production environment. THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
