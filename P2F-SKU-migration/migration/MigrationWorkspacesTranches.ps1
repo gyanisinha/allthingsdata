@@ -45,11 +45,11 @@ try {
 $targetCapacityId = "AAAAAAA-FBB9-4792-BBFF-6000000000E" # example
 $errorCnt = 0
 
-foreach ($workspaceId in $workspaces){
+foreach ($workspace in $workspaces){
         
-        ">> Moving Workspace: $($workspaceId)"
+        ">> Moving Workspace: $($workspace)"
         try {
-                $endpoint = "https://api.powerbi.com/v1.0/myorg/groups/$($workspaceId)/AssignToCapacity"
+                $endpoint = "https://api.powerbi.com/v1.0/myorg/groups/$($workspace)/AssignToCapacity"
                 $result = Invoke-PowerBIRestMethod -Method Post -Url $endpoint -Body "{`"capacityId`": `"$targetCapacityId`"}" -ErrorAction stop
         }
         catch
