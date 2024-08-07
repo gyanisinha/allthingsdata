@@ -1,10 +1,11 @@
 # Migrating list of workspaces from P capacity to F capacity in same region
 ###################################################################################################
 # please review the pre-reqs
-# this script accepts input csv file for list of workspaces to be migrated in batches. For example:
+# 1. this script accepts input csv file for list of workspaces to be migrated in batches. For example:
 #     WorkspaceId
 #     wsid-1
 #     wsid-2
+# 2. target capaciti id: $targetCapacityId
 ####################################################################################################
 
 # Connect to Power BI service using admin credentials or Service Principal (use KeyVault in Prod): example https://github.com/SQLSwimmer/powerbi-admin-scripts/blob/main/GetGatewayDatasources.ps1
