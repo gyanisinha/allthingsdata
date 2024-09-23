@@ -59,10 +59,25 @@ foreach ($workspace in $workspaces){
         # Initialize a counter for large semantic models
         $large_model_count = 0
 
+        # Initialize a counter for large storage format semantic models
+        $large_storage_format_count = 0 
+
+        # The list of large storage format enabled semantic model names
+        $large_storage_format_models=""
+
         # Check each dataset for size
         foreach ($dataset in $datasets) {
             if ($dataset.SizeInBytes -ge $large_model_threshold_bytes) {
                 $large_model_count++
+            }
+            if($dataset.TargetStorageMode -eq "PremiumFiles") {
+                $large_storage_format_count ++
+
+                # Record the semantic model name with large storage format enabled
+                if ($large_storage_format_models -ne "") {
+                    $large_storage_format_models += "|"
+                }
+                $large_storage_format_models += $dataset.Name  
             }
         }
 
@@ -123,8 +138,11 @@ foreach ($workspace in $workspaces){
             DatasetsCount = $datasets.Count
             # DatasetsDetails = $datasetsJson
             LargeModelCount = $large_model_count
+            LargeStorageFormatCount = $large_storage_format_count
+            LargeStorageFormatModel = $large_storage_format_models
             DataflowsCount = $dataflows.Count
             FabricItemsCount = $fabricItemsCount
+            
             }
           
 
@@ -139,7 +157,7 @@ foreach ($workspace in $workspaces){
 
 # Export the data to CSV
 try {
-    $workspaceDetails | Export-Csv -Path $csvFilePath -NoTypeInformation
+    $workspaceDetails | Export-Csv -Path $csvFilePath -Encoding UTF8 -NoTypeInformation
     Write-Host "Workspace details exported to $csvFilePath"
 } catch {
     Write-Host "Error exporting to CSV: $_"
