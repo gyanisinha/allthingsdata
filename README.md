@@ -1,6 +1,9 @@
 # allthingsdata
 this repo is for my learning (and collabs are welcome) - for all things data, ai and beyond! 
 
+## Blogs
+[Tech Community Blogs](https://github.com/gyanisinha/allthingsdata/tree/main/Blogs)
+
 ## AI Samples
 [ai-samples](https://github.com/gyanisinha/allthingsdata/tree/main/ai-samples)
 
