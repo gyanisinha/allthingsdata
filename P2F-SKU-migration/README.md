@@ -10,7 +10,7 @@ The seamless migration from **Power BI P SKU** to **Fabric F SKU** requires meti
 
 Before we dive into the script, ensure that you have the following pre-requisites:
 
-**NOTE**: Follow [security best practices](https://learn.microsoft.com/en-us/fabric/security/) and edit/modify the scripts as per your organization needs and standards. These are sample scripts, only for refrence.
+**NOTE**: Follow [security best practices](https://learn.microsoft.com/en-us/fabric/security/) and edit/modify the scripts as per your organization needs and standards. These are sample scripts, only for reference.
 
 1. PowerShell 5.1 or higher
 2. MicrosoftPowerBIMgmt module installed. If not, you can install it using the command `Install-Module -Name MicrosoftPowerBIMgmt`
