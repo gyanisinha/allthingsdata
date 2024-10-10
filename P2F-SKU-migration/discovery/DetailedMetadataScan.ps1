@@ -12,7 +12,6 @@ Connect-PowerBIServiceAccount
 #$TenantId = ''
 #$AppId = ''
 #$SecretValue = ''
-#$password = ConvertTo-SecureString $SecretValue -AsPlainText -Force
 #$Cred = New-Object System.Management.Automation.PSCredential ($AppId, $password)
 #Connect-PowerBIServiceAccount -Tenant $TenantId -ServicePrincipal -Credential $Cred
 
