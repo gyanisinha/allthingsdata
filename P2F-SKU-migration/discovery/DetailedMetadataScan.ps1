@@ -9,10 +9,6 @@
 
 # Connect to Power BI service using admin credentials or Service Principal (use KeyVault in Prod): example https://github.com/SQLSwimmer/powerbi-admin-scripts/blob/main/GetGatewayDatasources.ps1
 Connect-PowerBIServiceAccount
-#$TenantId = ''
-#$AppId = ''
-#$SecretValue = ''
-#$Cred = New-Object System.Management.Automation.PSCredential ($AppId, $password)
 #Connect-PowerBIServiceAccount -Tenant $TenantId -ServicePrincipal -Credential $Cred
 
 # Define the input workspace list to run in batches of 100
