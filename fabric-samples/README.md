@@ -4,8 +4,6 @@ below are some sample use cases for Microsft Fabric:
 ## Using ADF to copy data from source to Fabric Lakehouse
 [data-migration](https://github.com/gyanisinha/allthingsdata/new/main#data-migration)
 
-  - [Large XML processing in Fabric using spark-xml](./data-migration/fabric_spark_xml_example.ipynb)
-    ![image](https://github.com/user-attachments/assets/9fd33d3b-0ae3-48a9-882e-e9cd0a5803e9)
 
 
 ## Using Fabric REST-API to create pipeline (can be also used for cross tenant migration scenarios )
