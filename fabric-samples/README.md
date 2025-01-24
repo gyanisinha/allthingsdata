@@ -5,10 +5,15 @@ below are some sample use cases for Microsft Fabric:
 [data-migration](https://github.com/gyanisinha/allthingsdata/new/main#data-migration)
 
 
+
 ## XML Data Processing
 
   - [Large XML processing in Fabric using spark-xml](./data-migration/fabric_spark_xml_example.ipynb)
+  - Create new environment and upload custom library. Maven Repository: com.databricks » spark-xml_2.12 » 0.18.0. (spark-xml_2.12-0.18.0.jar). Save and publish.
+  - Read using pyspark
     ![image](https://github.com/user-attachments/assets/9fd33d3b-0ae3-48a9-882e-e9cd0a5803e9)
+    ![image](https://github.com/user-attachments/assets/e4c24189-f1f2-454c-84ef-89b35a687998)
+
 
 
 
