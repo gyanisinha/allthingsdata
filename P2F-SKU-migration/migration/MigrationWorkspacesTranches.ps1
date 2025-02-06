@@ -5,7 +5,7 @@
 #     WorkspaceId
 #     wsid-1
 #     wsid-2
-# 2. target capaciti id: $targetCapacityId
+# 2. target capacity id: $targetCapacityId <change capacity id in the script below>
 ####################################################################################################
 
 # Connect to Power BI service using admin credentials or Service Principal (use KeyVault in Prod): example https://github.com/SQLSwimmer/powerbi-admin-scripts/blob/main/GetGatewayDatasources.ps1
