@@ -42,14 +42,14 @@ foreach ($workspace in $workspaces){
     try {
         Write-Host "Fetching details for workspace $($workspace.ID) $($workspace.Name)"
         # Get details of the current workspace
-        $datasets = Get-PowerBIDataset -WorkspaceId $workspace.ID
+        $datasets = Get-PowerBIDataset -Scope Organization -WorkspaceId $workspace.ID
         $datasetsJson = $datasets | ConvertTo-Json
         Start-Sleep -Seconds 3
-        $dataflows = Get-PowerBIDataflow -WorkspaceId $workspace.ID
+        $dataflows = Get-PowerBIDataflow -Scope Organization -WorkspaceId $workspace.ID
         Start-Sleep -Seconds 3
-        $dasboards = Get-PowerBIDashboard -WorkspaceId $workspace.ID
+        $dasboards = Get-PowerBIDashboard -Scope Organization -WorkspaceId $workspace.ID
         Start-Sleep -Seconds 3
-        $reports = Get-PowerBIReport -WorkspaceId $workspace.ID
+        $reports = Get-PowerBIReport -Scope Organization -WorkspaceId $workspace.ID
         Start-Sleep -Seconds 3
 
 
