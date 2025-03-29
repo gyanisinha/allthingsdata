@@ -12,12 +12,16 @@ Before we dive into the script, ensure that you have the following pre-requisite
 
 **NOTE**: Follow [security best practices](https://learn.microsoft.com/en-us/fabric/security/) and edit/modify the scripts as per your organization needs and standards. These are sample scripts, only for reference.
 
+**NOTE**: Also refer to any latest product related anoouncements from Microsoft to asses any impact on migration, such as:
+- [grace period for transitioning from power-bi-premium to microsoft-fabric](https://powerbi.microsoft.com/en-us/blog/grace-period-for-transitioning-from-power-bi-premium-to-microsoft-fabric/)
+
+Technical pre-reqs:
+
 1. PowerShell 5.1 or higher
 2. MicrosoftPowerBIMgmt module installed. If not, you can install it using the command `Install-Module -Name MicrosoftPowerBIMgmt`
 3. Admin / Service Principal credentials for Power BI service with appropriate permissions at workspace level.
 
-**NOTE**: Also refer to any latest product related anoouncements from Microsoft to asses any impact on migration, such as:
-- [grace period for transitioning from power-bi-premium to microsoft-fabric](https://powerbi.microsoft.com/en-us/blog/grace-period-for-transitioning-from-power-bi-premium-to-microsoft-fabric/)
+
 
 ## Powershell Script
 
