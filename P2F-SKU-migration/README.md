@@ -16,6 +16,9 @@ Before we dive into the script, ensure that you have the following pre-requisite
 2. MicrosoftPowerBIMgmt module installed. If not, you can install it using the command `Install-Module -Name MicrosoftPowerBIMgmt`
 3. Admin / Service Principal credentials for Power BI service with appropriate permissions at workspace level.
 
+**NOTE**: Also refer to any latest product related anoouncements from Microsoft to asses any impact on migration, such as:
+- [grace period for transitioning from power-bi-premium to microsoft-fabric](https://powerbi.microsoft.com/en-us/blog/grace-period-for-transitioning-from-power-bi-premium-to-microsoft-fabric/)
+
 ## Powershell Script
 
 Below are few options for automated discovery. It is recommended to test the scripts in lower environment before using in Prod, for expected results.
