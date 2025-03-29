@@ -19,7 +19,8 @@ Technical pre-reqs:
 
 1. PowerShell 5.1 or higher
 2. MicrosoftPowerBIMgmt module installed. If not, you can install it using the command `Install-Module -Name MicrosoftPowerBIMgmt`
-3. Admin / Service Principal credentials for Power BI service with appropriate permissions at workspace level.
+3. Admin / Service Principal credentials for Power BI service with appropriate permissions at tenant/capacity/workspace level as necessary (refer to Microsoft docs).
+4. Refer to the pre-reqs for each of the scripts below (table: | Usage | Script | Input | Output | Pre-requisites)
 
 
 
