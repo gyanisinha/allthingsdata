@@ -54,7 +54,35 @@ foreach ($workspace in $workspaces){
         }
 
         # Get the owners of the workspace
-        $owners = $workspace.Users | Where-Object { $_.AccessRight -eq 'Admin' } | ForEach-Object { $_.UserPrincipalName }
+        $AdminObjects = $workspace.Users | Where-Object { $_.AccessRight -eq 'Admin' } 
+        Foreach ($WsUser in $AdminObjects)
+        {
+            $DisplayName = ''
+            If($WsUser.PrincipalType -eq 'User')
+            {
+                $DisplayName       = $WsUser.UserPrincipalName
+            }
+            ElseIf ($WsUser.PrincipalType -eq 'Group')
+            {
+                Try{
+                    $AdGroup    = Get-MgGroup -GroupId $Wsuser.Identifier -ErrorAction SilentlyContinue
+                    $DisplayName       = "Group: $($AdGroup.DisplayName)"
+                }
+                Catch{
+                    $DisplayName       = "GroupId: $($Wsuser.Identifier)"
+                }
+            }   
+            ElseIf ($WsUser.PrincipalType -eq 'App')
+            {
+                $AppName        = "AppId: $($Wsuser.Identifier)"
+                $DisplayName    = $AppName
+            }
+            Else
+            {
+                $DisplayName = "PrincipalType: $($WsUser.PrincipalType) ID: $($Wsuser.Identifier)" 
+            }
+            $Owners += $DisplayName
+        }
 
         # Fabric items rest API call
         $fabricItemsCount = 0
