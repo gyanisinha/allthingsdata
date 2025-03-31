@@ -55,6 +55,7 @@ foreach ($workspace in $workspaces){
 
         # Get the owners of the workspace
         $AdminObjects = $workspace.Users | Where-Object { $_.AccessRight -eq 'Admin' } 
+        $Owners = @()
         Foreach ($WsUser in $AdminObjects)
         {
             $DisplayName = ''
