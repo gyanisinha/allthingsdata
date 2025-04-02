@@ -83,7 +83,8 @@ Performing a comprehensive discovery of the current Power BI P SKU estate is a c
 ## Migration
 
 For migration there are few options:
-1. [Recommended] Bulk migration from Admin Portal (Workspaces>Reassign): https://learn.microsoft.com/en-us/fabric/admin/portal-workspaces#moving-data-around 
+1. [Recommended] [Automate your migration to microsoft fabric capacities using Semantic Link Labs](https://www.microsoft.com/en-us/microsoft-fabric/blog/2024/12/02/automate-your-migration-to-microsoft-fabric-capacities/?msockid=26cc5a721da66c561a3a48e51c6a6dba)
+1. Bulk migration from Admin Portal (Workspaces>Reassign): https://learn.microsoft.com/en-us/fabric/admin/portal-workspaces#moving-data-around 
 2. Bulk migration using PowerShell script for a given/specific list of workspaces:
     - [Migration Script - for specific list of workspaces](../P2F-SKU-migration/migration/MigrationWorkspacesTranches.ps1)
     - Input: Workspaces Id list in a CSV file and targetCapacity ID
