@@ -1,4 +1,4 @@
-# Power BI P SKU Estate - Automated Discovery
+# Power BI P SKU Estate
 
 ## Introduction
 
