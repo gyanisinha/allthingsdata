@@ -1,8 +1,11 @@
-# Migrating list of workspaces from P capacity to F capacity in the same tenant
+# Migrating workspaces in bulk from current P capacity to target F capacity in the same tenant
 #################################################################################
-# Update below parameters
+# Update below parameters::
 # $batchSize
+# $targetCapacityId
 # $csvFilePath
+# Note: If the $workspacesString gets too long, the Power BI API might throw an error due to the URL length limit. Consider breaking the request into smaller batches if this happens (or if you expect this to happen).
+# Recommend: Test the script in dev/test env and modify as necessary
 ##################################################################################
 # Connect to Power BI service using admin credentials or Service Principal (use KeyVault in Prod)
 # Example login: https://github.com/SQLSwimmer/powerbi-admin-scripts/blob/main/GetGatewayDatasources.ps1
@@ -17,7 +20,9 @@ try {
 }
 
 # Define the batch size for API calls
-$batchSize = 5000
+$batchSize = 1000
+# Migration - provide target capacity ID (should be in same tenant)
+$targetCapacityId = "AAAAAAA-FBB9-4792-BBFF-6000000000E" # example
 $workspaces = @()
 $migrationResults = @()  # This will store the workspace IDs and their statuses
 $csvFilePath = "C:\path\to\save\workspace_migration_status.csv"  # Ensure this path exists
@@ -33,14 +38,17 @@ try {
         
         # If batch size is reached, send the batch
         if ($workspaces.Count -eq $batchSize) {
-            # Convert the array of workspaces to a comma-separated string
-            $workspacesString = $workspaces -join ","
 
             # Call the API to assign workspaces in batch
             try {
+                # Construct the request body for the migration
+                $requestBody = @{
+                    "workspaces" = $workspaces
+                    "capacityId" = $targetCapacityId
+                } | ConvertTo-Json
                 $response = Invoke-RestMethod -Uri "https://api.powerbi.com/v1.0/myorg/admin/capacities/AssignWorkspaces" `
                                               -Method Post `
-                                              -Body (@{ "workspaces" = $workspacesString } | ConvertTo-Json) `
+                                              -Body $requestBody `
                                               -ContentType "application/json"
 
                 Write-Host "Successfully assigned $batchSize workspaces."
@@ -71,12 +79,16 @@ try {
 
     # Handle any remaining workspaces that didn't fill up a complete batch
     if ($workspaces.Count -gt 0) {
-        $workspacesString = $workspaces -join ","
         try {
+            # Construct the request body for the migration
+            $requestBody = @{
+                "workspaces" = $workspaces
+                "capacityId" = $targetCapacityId
+            } | ConvertTo-Json
             $response = Invoke-RestMethod -Uri "https://api.powerbi.com/v1.0/myorg/admin/capacities/AssignWorkspaces" `
-                                          -Method Post `
-                                          -Body (@{ "workspaces" = $workspacesString } | ConvertTo-Json) `
-                                          -ContentType "application/json"
+                                              -Method Post `
+                                              -Body $requestBody `
+                                              -ContentType "application/json"
 
             Write-Host "Successfully assigned remaining workspaces."
 
