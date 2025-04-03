@@ -96,9 +96,9 @@ foreach ($workspace in $workspaces){
             Write-Host "Error getting access token: $_"
         }
         
-        # List of Fabric items - check and update from: https://learn.microsoft.com/en-us/rest/api/fabric/admin/items/list-items?tabs=HTTP#itemtype
-        # $fabricItemsTypes = @('Lakehouse', 'Warehouse', 'KQLDatabase', 'Notebook', 'DataPipeline', 'Eventstream','KQLQueryset', 'KQLDataConnection', 'MLExperiment', 'MLModel', 'MirroredWarehouse', 'SQLEndpoint', 'SparkJobDefinition')
-        $fabricItemsTypes = @('Lakehouse', 'Warehouse', 'KQLDatabase', 'Notebook', 'DataPipeline', 'Eventstream','KQLQueryset', 'KQLDataConnection', 'MLExperiment', 'MLModel', 'MirroredWarehouse', 'SQLEndpoint', 'SparkJobDefinition', 'Environment', 'Eventhouse', 'GraphQLApi', 'KQLDashboard', 'MirroredDatabase', 'Reflex')
+        # Check the list of Fabric items - check and update latest keywords from: https://learn.microsoft.com/en-us/rest/api/fabric/admin/items/list-items?tabs=HTTP#itemtype
+        $powerbiItemTypes = @('Dashboard','Datamart','PaginatedReport','Report','SemanticModel')
+        # $fabricItemsTypes = @('Lakehouse', 'Warehouse', 'KQLDatabase', 'Notebook', 'DataPipeline', 'Eventstream','KQLQueryset', 'KQLDataConnection', 'MLExperiment', 'MLModel', 'MirroredWarehouse', 'SQLEndpoint', 'SparkJobDefinition', 'Environment', 'Eventhouse', 'GraphQLApi', 'KQLDashboard', 'MirroredDatabase', 'Reflex')
         try {
             $endpoint = "https://api.fabric.microsoft.com/v1/admin/items?workspaceId=$($workspace.ID)"
             $headers = @{"Authorization" = "$token"}
@@ -109,7 +109,8 @@ foreach ($workspace in $workspaces){
                 foreach ($entity in $item.itemEntities){
                     $itemType = $entity.type
                     # Write-Host "Item $itemType"
-                    if ($fabricItemsTypes -contains $itemType){
+                    # if ($fabricItemsTypes -contains $itemType){
+                    if ($powerbiItemTypes -notcontains $itemType){
                         $fabricItemsCount++
                         Start-Sleep -Seconds 3
                     }
