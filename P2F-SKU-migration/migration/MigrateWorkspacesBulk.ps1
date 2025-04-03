@@ -4,7 +4,7 @@
 # $batchSize
 # $targetCapacityId
 # $csvFilePath
-# Note: If the $workspaces gets too long, the Power BI API might throw an error due to the URL length limit. Consider breaking the request into smaller batches if this happens (or if you expect this to happen).
+# Note: Read offical doc: https://learn.microsoft.com/en-us/rest/api/power-bi/admin/capacities-assign-workspaces-to-capacity. Also, verify if the $workspaces gets too long, the Power BI API might throw an error due to the URL length limit. Consider breaking the request into smaller batches if this happens (or if you expect this to happen).
 # Recommend: Test the script in dev/test env and modify as necessary
 ##################################################################################
 # Connect to Power BI service using admin credentials or Service Principal (use KeyVault in Prod)
