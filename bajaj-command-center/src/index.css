@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #0a0e1a;
+    color: #e2e8f0;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  
+  .neon-green { color: #39ff14; }
+  .neon-yellow { color: #ffd700; }
+  .neon-red { color: #ff3b30; }
+  
+  .glass-card {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    backdrop-filter: blur(8px);
+  }
+
+  .tab-active {
+    background: linear-gradient(135deg, rgba(57,255,20,0.15), rgba(57,255,20,0.05));
+    border-bottom: 2px solid #39ff14;
+    color: #39ff14;
+  }
+
+  .live-pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .glow-green {
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.35);
+  }
+  .glow-red {
+    box-shadow: 0 0 12px rgba(255, 59, 48, 0.35);
+  }
+  .glow-yellow {
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.35);
+  }
+}
